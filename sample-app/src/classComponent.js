@@ -1,13 +1,13 @@
 import { Component } from "react"
 
-class classcomponent extends Component
+class ClassComponent extends Component
 {
     render()
     {
         return (
-            <h1>this is a class component same as functional</h1>
+            <h1>This is a class component same as functional. Component need to be capital like MyComponent</h1>
             );
     }
 }
 
-export default classcomponent
+export default ClassComponent

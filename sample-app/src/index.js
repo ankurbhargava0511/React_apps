@@ -10,6 +10,8 @@ root.render(
     <App />
   </React.StrictMode>
 );
+// Above way is the change with react 18
+// react strict mode is  doubling rendering (ghost mode )
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
