@@ -1,31 +1,44 @@
-import { Component } from "react";
-import ClassComponent from "./ClassComponent";
-import FunctionalComponent from "./FunctionalComponent";
-import ClassSateComponent from "./ClassComponents/ClassStateComponent";
-import ClassSinglePageApplication from "./ClassComponents/ClassSinglePageApplication";
-import ClassSinglePageApplicationOpt from "./ClassComponents/ClassSinglePageApplicationOpt";
-import ClassSinglePageApplicationComponentWithProps from "./ClassComponentWithMultiComp/ClassSinglePageApplicationComponentWithProps";
-import FunctionalComponentArrow from "./FunctionalComponentArrow";
-import FunctionalSinglePageApplicationComponentWithProps from "./FunctionalComponentWithMultiComp/FunctionalSinglePageApplicationComponentWithProps";
+import { Component, Fragment } from "react";
+import { Routes, Route, Outlet, Link} from "react-router-dom";
+import Home from "./BasicComponents/home";
+import Learn from "./BasicComponents/learn";
+import About from "./BasicComponents/About";
+import Notes from "./BasicComponents/Notes";
+import FormControl from "./BasicComponents/formControl";
+
+const Navigation = () => {
+  return (
+    <Fragment>
+      <div>
+        <Link to="/"> 
+        <h2>This is navigation. Can be a seperate components</h2>
+        </Link>
+      </div>
+      <div>
+        <Link to="/notes" >Notes</Link>
+        <Link to="/learn">Learn</Link>
+        <Link to="/form">Form</Link>
+        <Link to="/about">about</Link>
+
+      </div>
+      <Outlet />
+    </Fragment>
+  );
+};
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header"></header>
-        <div className="App-title">This is the title</div>
-        <div>
-          <ClassComponent></ClassComponent>
-          <FunctionalComponent></FunctionalComponent>
-
-          <ClassSateComponent></ClassSateComponent>
-          <ClassSinglePageApplication></ClassSinglePageApplication>
-          <ClassSinglePageApplicationOpt></ClassSinglePageApplicationOpt>
-          <ClassSinglePageApplicationComponentWithProps></ClassSinglePageApplicationComponentWithProps>
-          <FunctionalComponentArrow></FunctionalComponentArrow>
-          <FunctionalSinglePageApplicationComponentWithProps/>
-        </div>
-      </div>
+      <Routes>
+        <Route path="/" element={<Navigation />}>
+          <Route index element={<Home />} />
+          <Route path="notes" element={<Notes />} />
+          <Route path="learn" element={<Learn />} />
+          <Route path="form" element={<FormControl />} />
+          
+          <Route path="about" element={<About />} />
+        </Route>
+      </Routes>
     );
   }
 }
