@@ -11,9 +11,10 @@ import MenuItem from "./Products/menu-item";
 import ProductCard from "./Products/ProductCard";
 import { CartContext } from "./ContextProvider/CartContext";
 import Checkout from "./Products/checkout";
+import StyledComponent from "./StyleComponent/StyledComponent";
 
 const Navigation = () => {
-  const {isCartOpen, setCartOpen} = useContext(CartContext)
+  const {isCartOpen} = useContext(CartContext)
   return (
     <Fragment>
       <div>
@@ -29,6 +30,7 @@ const Navigation = () => {
           <Link to="/userValueProvider">Context Test</Link>
           <Link to="/product">product</Link>
           <Link to="/about">about</Link>
+          <Link to="/myStyle"> my style </Link>
           <MenuItem />
         </div>
         {isCartOpen && <ProductCard />}
@@ -49,9 +51,10 @@ class App extends Component {
           <Route path="learn" element={<Learn />} />
           <Route path="form" element={<FormControl />} />
           <Route path="userValueProvider" element={<UserValueProvider />} />
-          <Route path="product" element={<MyProduct />} />
+          <Route path="product/*" element={<MyProduct />} />
           <Route path="about" element={<About />} />
           <Route path="checkout" element={<Checkout />} />
+          <Route path="myStyle" element={<StyledComponent />} />
         </Route>
       </Routes>
     );
