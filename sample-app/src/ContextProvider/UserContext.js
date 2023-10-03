@@ -9,6 +9,6 @@ export const MyUserContext = createContext({
 export const UserProvider =({children})=>{
     const [curUser, setCurUser] = useState('test')
     const value={curUser, setCurUser}
-    console.log(curUser)
+    //console.log(curUser)
     return<MyUserContext.Provider value={value} >{children}</MyUserContext.Provider>
 };
