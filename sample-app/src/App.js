@@ -5,6 +5,7 @@ import Learn from "./BasicComponents/learn";
 import About from "./BasicComponents/About";
 import Notes from "./BasicComponents/Notes";
 import FormControl from "./BasicComponents/formControl";
+import UserValueProvider from "./ContextProvider/userValueProducer";
 
 const Navigation = () => {
   return (
@@ -15,11 +16,11 @@ const Navigation = () => {
         </Link>
       </div>
       <div>
-        <Link to="/notes" >Notes</Link>
+        <Link to="/notes">Notes</Link>
         <Link to="/learn">Learn</Link>
         <Link to="/form">Form</Link>
+        <Link to="/userValueProvider">Context Test</Link>
         <Link to="/about">about</Link>
-
       </div>
       <Outlet />
     </Fragment>
@@ -35,7 +36,7 @@ class App extends Component {
           <Route path="notes" element={<Notes />} />
           <Route path="learn" element={<Learn />} />
           <Route path="form" element={<FormControl />} />
-          
+          <Route path="userValueProvider" element={<UserValueProvider />} />
           <Route path="about" element={<About />} />
         </Route>
       </Routes>

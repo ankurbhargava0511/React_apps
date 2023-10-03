@@ -1,5 +1,9 @@
+import { useContext } from "react";
+import { MyUserContext } from "../ContextProvider/UserContext";
+
 const About = () => {
-    return <div>This is About component</div>;
+  const {curUser, setCurUser}= useContext(MyUserContext)
+    return <div>This is About component. UserName: {curUser}</div>;
   };
   
   
