@@ -1,4 +1,4 @@
-import ClassComponent from "../ClassComponent";
+import ClassComponent from "../classComponents";
 import ClassSinglePageApplicationComponentWithProps from "../ClassComponentWithMultiComp/ClassSinglePageApplicationComponentWithProps";
 import ClassSinglePageApplication from "../ClassComponents/ClassSinglePageApplication";
 import ClassSinglePageApplicationOpt from "../ClassComponents/ClassSinglePageApplicationOpt";
