@@ -1,17 +1,19 @@
-import { useContext, useState } from "react";
-import { ProductContext } from "../ContextProvider/ProductContext";
 
-const ProductEdit = () => {
-  const emptyproduct = {
-    id: -1,
-    name: "",
-    price: 0,
-    quantity: 0,
-  };
+import { useContext, useState } from "react";
+import { ProductContextReducer } from "../ContextProvider/ProductContextReducer";
+
+const ProductEditReducer=()=>{
+
+    const emptyproduct = {
+        id: -1,
+        name: "",
+        price: 0,
+        quantity: 0,
+      };  
   const [product, setProduct] = useState(emptyproduct);
   const { id, name, price, quantity } = product;
 
-  const { addProduct } = useContext(ProductContext);
+  const {addProduct} = useContext(ProductContextReducer)
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -20,10 +22,11 @@ const ProductEdit = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    addProduct(product);
+    addProduct(product)
   };
   return (
     <div>
+      
       <h4>Add Products</h4>
       <form onSubmit={() => {}}>
         <lable>id</lable>
@@ -34,7 +37,7 @@ const ProductEdit = () => {
           name="id"
           value={id}
         />
-        <lable>name</lable>
+         <lable>name</lable>
         <input
           type="text"
           required
@@ -42,7 +45,7 @@ const ProductEdit = () => {
           name="name"
           value={name}
         />
-        <lable>price</lable>
+ <lable>price</lable>
         <input
           type="number"
           required
@@ -51,7 +54,7 @@ const ProductEdit = () => {
           value={price}
         />
 
-        <lable>quantity</lable>
+<lable>quantity</lable>
         <input
           type="number"
           required
@@ -65,6 +68,7 @@ const ProductEdit = () => {
       </form>
     </div>
   );
-};
 
-export default ProductEdit;
+}
+
+export default ProductEditReducer;

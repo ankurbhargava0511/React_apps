@@ -1,10 +1,10 @@
 
 import { useContext } from "react";
-import { ProductContext } from "../ContextProvider/ProductContext";
+import { ProductContextReducer } from "../ContextProvider/ProductContextReducer";
 
-const ProductList=()=>{
+const ProductListReducer=()=>{
 
-    const { products, totalProducts, totalAmount} = useContext(ProductContext);
+    const { products, totalProducts, totalAmount} = useContext(ProductContextReducer);
    
     return (
       <div>
@@ -12,7 +12,7 @@ const ProductList=()=>{
         <h4> Total Product {totalProducts}</h4>
         <h4> Total Amount {totalAmount}</h4>
         <h2> List of Product</h2>
-        {products.map(product => <ProductDisplay key ={product.id} id={product.id} name={product.name} price={product.price} quantity ={product.quantity}></ProductDisplay>)}
+        {products.map(product => <ProductDisplay id={product.id} name={product.name} price={product.price} quantity ={product.quantity}></ProductDisplay>)}
       </div>
     );
   
@@ -22,7 +22,7 @@ const ProductList=()=>{
 
   const ProductDisplay =product=>{
     const {id,name, price, quantity} = product;
-    const {  removeProduct} = useContext(ProductContext);
+    const {  removeProduct} = useContext(ProductContextReducer);
     const handleSubmit =  (event) => {
       event.preventDefault();
       
@@ -30,6 +30,7 @@ const ProductList=()=>{
     };
     console.log(id);
     return (
+      <div>
       <div key={id}>
         <span>     {id} </span>
         <span>     {name} </span>
@@ -39,9 +40,9 @@ const ProductList=()=>{
         <button onClick={handleSubmit} > Remove</button>
       </div>
      
-
+      </div>
     );
   }
 
 
-  export default ProductList;
+  export default ProductListReducer;
